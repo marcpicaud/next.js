@@ -48,6 +48,11 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# If your project uses Image Optimization with the default loader, you must install sharp as a dependency:
+# yarn add sharp
+# npm i sharp
+# pnpm add sharp
+
 USER nextjs
 
 EXPOSE 3000
